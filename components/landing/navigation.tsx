@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -23,6 +24,15 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleGetQuote = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+      window.location.hash = "contact";
+    }
+  };
+
   return (
     <header
       className={`fixed z-50 transition-all duration-500 ${
@@ -43,11 +53,26 @@ export function Navigation() {
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <span
-              className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl" : "text-2xl"}`}
+            <div
+              className={`relative transition-all duration-500 ${
+                isScrolled ? "w-15 h-15" : "w-25 h-25"
+              }`}
+            >
+              <Image
+                src="/logo-black.svg"
+                alt="Blitz Creative Logo"
+                fill
+                className="object-contain dark:invert"
+                priority
+              />
+            </div>
+            {/* <span
+              className={`font-display tracking-tight transition-all duration-500 ${
+                isScrolled ? "text-lg" : "text-xl"
+              }`}
             >
               Blitz Creative
-            </span>
+            </span> */}
           </a>
 
           {/* Desktop Navigation */}
@@ -66,15 +91,12 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="#work"
-              className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}
-            >
-              Our Work
-            </a>
             <Button
               size="sm"
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              onClick={handleGetQuote}
+              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${
+                isScrolled ? "px-4 h-8 text-xs" : "px-6"
+              }`}
             >
               Get a Quote
             </Button>
@@ -136,15 +158,11 @@ export function Navigation() {
             style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
             <Button
-              variant="outline"
-              className="flex-1 rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Our Work
-            </Button>
-            <Button
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleGetQuote();
+              }}
             >
               Get a Quote
             </Button>

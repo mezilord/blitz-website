@@ -5,17 +5,17 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Web & Mobile Development",
-    description:
-      "Custom websites, web applications, and native mobile apps for iOS and Android. From landing pages to complex platforms, we build fast, responsive, and scalable solutions.",
-    visual: "deploy",
-  },
-  {
-    number: "02",
     title: "AI Solutions",
     description:
       "Intelligent automation for your business. Customer support agents, chatbots, AI-powered workflows, and custom integrations that save time and boost efficiency.",
     visual: "ai",
+  },
+  {
+    number: "02",
+    title: "Web & Mobile Development",
+    description:
+      "Custom websites, web applications, and native mobile apps for iOS and Android. From landing pages to complex platforms, we build fast, responsive, and scalable solutions.",
+    visual: "deploy",
   },
   {
     number: "03",
@@ -520,7 +520,7 @@ export function FeaturesSection() {
   }, []);
 
   return (
-    <section id="features" ref={sectionRef} className="relative py-24 lg:py-32">
+    <section id="services" ref={sectionRef} className="relative py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
@@ -529,7 +529,6 @@ export function FeaturesSection() {
             Services
           </span>
           <h2
-            id="services"
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
               isVisible
                 ? "opacity-100 translate-y-0"

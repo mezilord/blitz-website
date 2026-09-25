@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
@@ -42,19 +43,41 @@ export function FooterSection() {
       <div className="absolute inset-0 h-64 opacity-20 pointer-events-none overflow-hidden">
         <AnimatedWave />
       </div>
-      
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Main Footer */}
         <div className="py-16 lg:py-24">
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">Blitz Creative</span>
+              <a
+                href="#"
+                className="inline-flex items-center justify-start gap-2 mb-6 text-left"
+              >
+                <div className="relative transition-all duration-500 w-35 h-35">
+                  <img
+                    alt="Blitz Creative Logo"
+                    decoding="async"
+                    data-nimg="fill"
+                    className="object-contain dark:invert"
+                    style={{
+                      position: "absolute",
+                      height: "100%",
+                      width: "100%",
+                      left: "-24px",
+                      top: 0,
+                      right: "auto",
+                      bottom: "auto",
+                      color: "transparent",
+                    }}
+                    src="/logo-black.svg"
+                  />
+                </div>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                Your full-service design and development studio. We bring your vision to life with exceptional quality.
+                Your full-service design and development studio. We bring your
+                vision to life with exceptional quality.
               </p>
 
               {/* Social Links */}

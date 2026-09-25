@@ -6,7 +6,8 @@ const steps = [
   {
     number: "I",
     title: "Connect with us",
-    description: "Reach out through our contact form or schedule a call. We'll discuss your vision and goals.",
+    description:
+      "Reach out through our contact form or schedule a call. We'll discuss your vision and goals.",
     code: `// Initial consultation
 
 blitz.connect({
@@ -19,7 +20,8 @@ blitz.connect({
   {
     number: "II",
     title: "Define requirements",
-    description: "We dive deep into your project needs, target audience, and business objectives to create a clear roadmap.",
+    description:
+      "We dive deep into your project needs, target audience, and business objectives to create a clear roadmap.",
     code: `blitz.define({
   scope: project.requirements,
   timeline: 'agreed',
@@ -33,7 +35,8 @@ blitz.connect({
   {
     number: "III",
     title: "We start building",
-    description: "Our team gets to work bringing your vision to life with regular updates and collaboration throughout.",
+    description:
+      "Our team gets to work bringing your vision to life with regular updates and collaboration throughout.",
     code: `blitz.build({
   design: 'in-progress',
   development: 'iterative',
@@ -45,7 +48,8 @@ blitz.connect({
   {
     number: "IV",
     title: "Delivery & launch",
-    description: "Final review, revisions, and launch. We ensure everything is perfect before going live.",
+    description:
+      "Final review, revisions, and launch. We ensure everything is perfect before going live.",
     code: `blitz.deliver({
   status: 'complete',
   quality: '100%',
@@ -66,7 +70,7 @@ export function HowItWorksSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -82,21 +86,24 @@ export function HowItWorksSection() {
 
   return (
     <section
-      id="how-it-works"
+      id="process"
       ref={sectionRef}
       className="relative py-24 lg:py-32 bg-foreground text-background overflow-hidden"
     >
       {/* Diagonal lines pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
             -45deg,
             transparent,
             transparent 40px,
             currentColor 40px,
             currentColor 41px
-          )`
-        }} />
+          )`,
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -107,9 +114,10 @@ export function HowItWorksSection() {
             Our Workflow
           </span>
           <h2
-            id="process"
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
           >
             Four simple steps.
@@ -128,11 +136,15 @@ export function HowItWorksSection() {
                 type="button"
                 onClick={() => setActiveStep(index)}
                 className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group ${
-                  activeStep === index ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  activeStep === index
+                    ? "opacity-100"
+                    : "opacity-40 hover:opacity-70"
                 }`}
               >
                 <div className="flex items-start gap-6">
-                  <span className="font-display text-3xl text-background/30">{step.number}</span>
+                  <span className="font-display text-3xl text-background/30">
+                    {step.number}
+                  </span>
                   <div className="flex-1">
                     <h3 className="text-2xl lg:text-3xl font-display mb-3 group-hover:translate-x-2 transition-transform duration-300">
                       {step.title}
@@ -140,14 +152,14 @@ export function HowItWorksSection() {
                     <p className="text-background/60 leading-relaxed">
                       {step.description}
                     </p>
-                    
+
                     {/* Progress indicator */}
                     {activeStep === index && (
                       <div className="mt-4 h-px bg-background/20 overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-background w-0"
                           style={{
-                            animation: 'progress 5s linear forwards'
+                            animation: "progress 5s linear forwards",
                           }}
                         />
                       </div>
@@ -158,8 +170,8 @@ export function HowItWorksSection() {
             ))}
           </div>
 
-          {/* Code display */}
-          <div className="lg:sticky lg:top-32 self-start">
+          {/* Code display & Contact Button container */}
+          <div className="lg:sticky lg:top-32 self-start space-y-6">
             <div className="border border-background/10 overflow-hidden">
               {/* Window header */}
               <div className="px-6 py-4 border-b border-background/10 flex items-center justify-between">
@@ -168,31 +180,37 @@ export function HowItWorksSection() {
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">project.ts</span>
+                <span className="text-xs font-mono text-background/40">
+                  project.ts
+                </span>
               </div>
 
               {/* Code content */}
               <div className="p-8 font-mono text-sm min-h-[280px]">
                 <pre className="text-background/70">
-                  {steps[activeStep].code.split('\n').map((line, lineIndex) => (
-                    <div 
-                      key={`${activeStep}-${lineIndex}`} 
+                  {steps[activeStep].code.split("\n").map((line, lineIndex) => (
+                    <div
+                      key={`${activeStep}-${lineIndex}`}
                       className="leading-loose code-line-reveal"
-                      style={{ 
+                      style={{
                         animationDelay: `${lineIndex * 80}ms`,
                       }}
                     >
-                      <span className="text-background/20 select-none w-8 inline-block">{lineIndex + 1}</span>
+                      <span className="text-background/20 select-none w-8 inline-block">
+                        {lineIndex + 1}
+                      </span>
                       <span className="inline-flex">
-                        {line.split('').map((char, charIndex) => (
+                        {line.split("").map((char, charIndex) => (
                           <span
                             key={`${activeStep}-${lineIndex}-${charIndex}`}
                             className="code-char-reveal"
                             style={{
-                              animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
+                              animationDelay: `${
+                                lineIndex * 80 + charIndex * 15
+                              }ms`,
                             }}
                           >
-                            {char === ' ' ? '\u00A0' : char}
+                            {char === " " ? "\u00A0" : char}
                           </span>
                         ))}
                       </span>
@@ -204,8 +222,33 @@ export function HowItWorksSection() {
               {/* Status */}
               <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono text-background/40">Ready</span>
+                <span className="text-xs font-mono text-background/40">
+                  Ready
+                </span>
               </div>
+            </div>
+
+            {/* Contact Button */}
+            <div>
+              <a
+                href="#contact"
+                className="group relative inline-flex items-center justify-between w-full px-6 py-4 bg-background text-foreground font-mono text-sm uppercase tracking-wider font-semibold border border-background hover:bg-transparent hover:text-background transition-all duration-300"
+              >
+                <span>Get In Touch</span>
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -213,29 +256,33 @@ export function HowItWorksSection() {
 
       <style jsx>{`
         @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
         }
-        
+
         .code-line-reveal {
           opacity: 0;
           transform: translateX(-8px);
           animation: lineReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
+
         @keyframes lineReveal {
           to {
             opacity: 1;
             transform: translateX(0);
           }
         }
-        
+
         .code-char-reveal {
           opacity: 0;
           filter: blur(8px);
           animation: charReveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
+
         @keyframes charReveal {
           to {
             opacity: 1;

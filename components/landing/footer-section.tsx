@@ -6,27 +6,27 @@ import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
   Services: [
-    { name: "Website Development", href: "#services" },
-    { name: "AI Development", href: "#services" },
-    { name: "Mobile Apps", href: "#services" },
-    { name: "UX/UI Design", href: "#services" },
+    { name: "Website Development", href: "/#services" },
+    { name: "AI Development", href: "/#services" },
+    { name: "Mobile Apps", href: "/#services" },
+    { name: "UX/UI Design", href: "/#services" },
   ],
   Marketing: [
-    { name: "Social Media", href: "#services" },
-    { name: "SEO Services", href: "#services" },
-    { name: "Video Editing", href: "#services" },
-    { name: "Google Business", href: "#services" },
+    { name: "Social Media", href: "/#services" },
+    { name: "SEO Services", href: "/#services" },
+    { name: "Video Editing", href: "/#services" },
+    { name: "Google Business", href: "/#services" },
   ],
   Company: [
     { name: "About Us", href: "#" },
-    { name: "Our Work", href: "#work" },
-    { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" },
+    { name: "Our Work", href: "/work/" },
+    { name: "Process", href: "/#process" },
+    { name: "Contact", href: "/#contact" },
   ],
   Legal: [
     { name: "Privacy Policy", href: "#" },
     { name: "Terms of Service", href: "#" },
-    { name: "Our Guarantee", href: "#contact" },
+    { name: "Our Guarantee", href: "/#contact" },
   ],
 };
 
@@ -51,7 +51,7 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a
-                href="#"
+                href="/"
                 className="inline-flex items-center justify-start gap-2 mb-6 text-left"
               >
                 <img

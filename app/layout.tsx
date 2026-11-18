@@ -6,6 +6,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { LiveDemoProvider } from "@/components/work/live-demo";
 // @ts-expect-error CSS is handled by Next.js at build time.
 import "./globals.css";
 
@@ -49,7 +50,7 @@ export default function RootLayout({
       <body
         className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <LiveDemoProvider>{children}</LiveDemoProvider>
         <Analytics />
       </body>
     </html>

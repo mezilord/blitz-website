@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Our Process", href: "#process" },
-  { name: "Our Work", href: "#work" },
-  { name: "Contact", href: "#contact" },
+  { name: "Services", href: "/#services" },
+  { name: "Our Process", href: "/#process" },
+  { name: "Our Work", href: "/work/" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -30,6 +30,8 @@ export function Navigation() {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
       window.location.hash = "contact";
+    } else {
+      window.location.href = "/#contact";
     }
   };
 
@@ -52,7 +54,7 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <div
               className={`relative transition-all duration-500 ${
                 isScrolled ? "w-[72px] h-12" : "w-[104px] h-[70px]"

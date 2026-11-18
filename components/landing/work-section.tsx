@@ -40,10 +40,8 @@ function ViewWorkButton({ serviceKey }: { serviceKey: ServiceKey }) {
       </LiveDemoButton>
     );
   }
-  // No full brand-identity projects yet — show the logo work instead.
-  const target = serviceKey === "brand" ? "logo" : serviceKey;
   return (
-    <a href={`/work/#${target}`} className={viewWorkClass}>
+    <a href="/work/" className={viewWorkClass}>
       <ViewWorkInner />
     </a>
   );

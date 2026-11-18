@@ -31,7 +31,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const project = getProject(slug);
   if (!project) notFound();
 
-  const others = projects.filter((p) => p.slug !== project.slug).slice(0, 4);
+  const others = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
   const meta = [
     { label: "Client", value: project.client },
@@ -138,7 +138,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <h2 className="text-3xl lg:text-5xl font-display tracking-tight mb-10 lg:mb-12">
               Other projects
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
               {others.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
               ))}

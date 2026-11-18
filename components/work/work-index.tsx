@@ -1,93 +1,40 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { ArrowLeft } from "lucide-react";
-import { projects, services, type ServiceKey } from "@/lib/work";
+import { ArrowRight, GalleryHorizontal } from "lucide-react";
+import { projects } from "@/lib/work";
 import { ProjectCard } from "./project-card";
 
-type Filter = "all" | ServiceKey;
-
-const filters: { key: Filter; label: string }[] = [
-  { key: "all", label: "All work" },
-  ...services
-    .filter((s) => projects.some((p) => p.categories.includes(s.key)))
-    .map((s) => ({ key: s.key as Filter, label: s.title })),
-];
-
-function readHash(): Filter {
-  if (typeof window === "undefined") return "all";
-  const h = window.location.hash.replace("#", "");
-  return (["brand", "logo", "web"] as string[]).includes(h)
-    ? (h as Filter)
-    : "all";
-}
-
 export function WorkIndex() {
-  const [filter, setFilter] = useState<Filter>("all");
-
-  useEffect(() => {
-    setFilter(readHash());
-    const onHash = () => setFilter(readHash());
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
-
-  const select = (key: Filter) => {
-    setFilter(key);
-    history.replaceState(null, "", key === "all" ? "/work/" : `/work/#${key}`);
-  };
-
-  const visible =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.categories.includes(filter));
-
   return (
     <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-36 lg:pt-44 pb-24 lg:pb-32">
+      {/* Header */}
+      <span className="inline-flex items-center gap-3 text-sm font-medium uppercase tracking-wider mb-6">
+        <GalleryHorizontal className="h-5 w-5 stroke-[1.5]" />
+        Work
+        <span className="w-16 h-px bg-foreground/20" />
+      </span>
+      <h1 className="text-4xl lg:text-6xl font-display tracking-tight leading-[1.1]">
+        Projects we&apos;re proud to have built.
+        <br />
+        <span className="text-muted-foreground">
+          Websites and brands made to grow businesses.
+        </span>
+      </h1>
+
       <a
-        href="/"
-        className="inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        href="#contact"
+        className="group mt-10 inline-flex items-center gap-3 rounded-full bg-brand-navy pl-7 pr-2 py-2 text-base text-white shadow-[0_8px_24px_rgba(6,42,58,0.25)] transition-colors hover:bg-brand-navy/90"
       >
-        <ArrowLeft className="h-4 w-4" />
-        Back to home
+        Book Free Discovery Call
+        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30">
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </span>
       </a>
 
-      <div className="mt-10 mb-12 lg:mb-16">
-        <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-          <span className="w-8 h-px bg-brand-orange" />
-          Our Work
-        </span>
-        <h1 className="text-5xl lg:text-7xl font-display tracking-tight">
-          Selected work
-        </h1>
-      </div>
-
-      <div className="flex flex-wrap gap-3 mb-12">
-        {filters.map((f) => (
-          <button
-            key={f.key}
-            type="button"
-            onClick={() => select(f.key)}
-            className={`rounded-full border px-5 py-2.5 text-sm transition-colors ${
-              filter === f.key
-                ? "border-brand-navy bg-brand-navy text-white"
-                : "border-foreground/10 bg-white text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            {f.label}
-          </button>
+      {/* Grid */}
+      <div className="mt-16 lg:mt-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 lg:gap-y-20">
+        {projects.map((p) => (
+          <ProjectCard key={p.slug} project={p} />
         ))}
       </div>
-
-      {visible.length > 0 ? (
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {visible.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-muted-foreground">New projects coming soon.</p>
-      )}
     </div>
   );
 }

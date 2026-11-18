@@ -30,6 +30,12 @@ export function Navigation() {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
       window.location.hash = "contact";
+    } else if ((window as any).Cal?.ns?.["30min"]) {
+      // Pages with the Cal.com floating button: open the booking popup.
+      (window as any).Cal.ns["30min"]("modal", {
+        calLink: "blitz-creative/30min",
+        config: { layout: "month_view" },
+      });
     } else {
       window.location.href = "/#contact";
     }

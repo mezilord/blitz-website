@@ -19,15 +19,19 @@ export function WorkIndex() {
         </span>
       </h1>
 
-      <a
-        href="#contact"
+      <button
+        id="discovery-cta"
+        type="button"
+        data-cal-namespace="30min"
+        data-cal-link="blitz-creative/30min"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}'
         className="group mt-10 inline-flex items-center gap-3 rounded-full bg-brand-navy pl-7 pr-2 py-2 text-base text-white shadow-[0_8px_24px_rgba(6,42,58,0.25)] transition-colors hover:bg-brand-navy/90"
       >
         Book Free Discovery Call
         <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30">
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </span>
-      </a>
+      </button>
 
       {/* Grid */}
       <div className="mt-16 lg:mt-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 lg:gap-y-20">

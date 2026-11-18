@@ -213,3 +213,15 @@
       8px 8px;
   }
 }
+
+/* Cal.com floating booking button: hidden while the page's own CTA is visible */
+cal-floating-button {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+body.cal-fab-hidden cal-floating-button {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}

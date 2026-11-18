@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
-import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 import { WorkIndex } from "@/components/work/work-index";
+import { CalFloatingButton } from "@/components/work/cal-floating";
 
 export const metadata: Metadata = {
   title: "Our Work — Blitz Creative",
@@ -15,7 +15,7 @@ export default function WorkPage() {
     <main className="relative min-h-screen overflow-x-hidden noise-overlay">
       <Navigation />
       <WorkIndex />
-      <CtaSection />
+      <CalFloatingButton />
       <FooterSection />
     </main>
   );

@@ -36,9 +36,7 @@ export function LiveDemoProvider({ children }: { children: ReactNode }) {
   const step = useCallback((dir: 1 | -1) => {
     setLoading(true);
     setIndex((i) =>
-      i === null
-        ? i
-        : (i + dir + liveProjects.length) % liveProjects.length,
+      i === null ? i : (i + dir + liveProjects.length) % liveProjects.length,
     );
   }, []);
 
@@ -71,104 +69,111 @@ export function LiveDemoProvider({ children }: { children: ReactNode }) {
           role="dialog"
           aria-modal="true"
           aria-label={`${project.title} live demo`}
-          className="fixed inset-0 z-[100] flex flex-col bg-brand-navy animate-in fade-in duration-300"
+          onClick={close}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-navy/60 backdrop-blur-sm p-3 sm:p-6 animate-in fade-in duration-300"
         >
-          {/* Top bar */}
-          <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 lg:px-6 text-white">
-            <div className="flex min-w-0 items-center gap-4">
-              <span className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-white/60">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
-                Live
-              </span>
-              <span className="truncate text-sm lg:text-base">
-                {project.title}
-              </span>
-              {many && (
-                <span className="hidden sm:inline text-xs font-mono text-white/40">
-                  {pad(index! + 1)} / {pad(liveProjects.length)}
+          {/* Browser window: ~70% of the screen on desktop */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex h-[88vh] w-full flex-col overflow-hidden rounded-2xl bg-brand-navy shadow-[0_24px_80px_rgba(0,0,0,0.45)] ring-1 ring-white/10 lg:h-[90vh] lg:w-[90vw] animate-in zoom-in-95 duration-300"
+          >
+            {/* Top bar */}
+            <div className="flex h-14 shrink-0 items-center justify-between gap-4 border-b border-white/10 px-4 lg:px-6 text-white">
+              <div className="flex min-w-0 items-center gap-4">
+                <span className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-white/60">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-pulse" />
+                  Live
                 </span>
-              )}
-            </div>
+                <span className="truncate text-sm lg:text-base">
+                  {project.title}
+                </span>
+                {many && (
+                  <span className="hidden sm:inline text-xs font-mono text-white/40">
+                    {pad(index! + 1)} / {pad(liveProjects.length)}
+                  </span>
+                )}
+              </div>
 
-            <div className="flex shrink-0 items-center gap-2">
-              {many && (
-                <>
-                  <button
-                    type="button"
-                    onClick={() => step(-1)}
-                    aria-label="Previous site"
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => step(1)}
-                    aria-label="Next site"
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
-                  >
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </>
-              )}
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex h-9 items-center gap-1.5 rounded-full border border-white/20 px-4 text-sm hover:bg-white/10 transition-colors"
-              >
-                Visit
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-              <button
-                type="button"
-                onClick={close}
-                className="inline-flex h-9 items-center gap-2 rounded-full bg-background px-4 text-sm text-brand-navy hover:bg-white transition-colors"
-              >
-                Close
-                <kbd className="hidden sm:inline rounded border border-brand-navy/20 px-1.5 text-[10px] font-mono">
-                  Esc
-                </kbd>
-              </button>
-            </div>
-          </div>
-
-          {/* Site */}
-          <div className="relative flex-1 bg-white">
-            {project.embeddable === false ? (
-              <div className="flex h-full flex-col items-center justify-center gap-6 bg-background p-6 text-center">
-                <img
-                  src={project.cover}
-                  alt={project.title}
-                  className="max-h-[60%] max-w-full rounded-2xl border border-foreground/10 object-contain"
-                />
+              <div className="flex shrink-0 items-center gap-2">
+                {many && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => step(-1)}
+                      aria-label="Previous site"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => step(1)}
+                      aria-label="Next site"
+                      className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+                    >
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </>
+                )}
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-navy px-6 text-white"
+                  className="hidden sm:inline-flex h-9 items-center gap-1.5 rounded-full border border-white/20 px-4 text-sm hover:bg-white/10 transition-colors"
                 >
-                  Visit the live site
-                  <ArrowUpRight className="h-4 w-4" />
+                  Visit
+                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
+                <button
+                  type="button"
+                  onClick={close}
+                  className="inline-flex h-9 items-center gap-2 rounded-full bg-background px-4 text-sm text-brand-navy hover:bg-white transition-colors"
+                >
+                  Close
+                  <kbd className="hidden sm:inline rounded border border-brand-navy/20 px-1.5 text-[10px] font-mono">
+                    Esc
+                  </kbd>
+                </button>
               </div>
-            ) : (
-              <>
-                {loading && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-background">
-                    <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-                  </div>
-                )}
-                <iframe
-                  key={project.slug}
-                  src={project.liveUrl}
-                  title={`${project.title} — live site`}
-                  onLoad={() => setLoading(false)}
-                  className="h-full w-full border-0"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </>
-            )}
+            </div>
+
+            {/* Site */}
+            <div className="relative flex-1 bg-white">
+              {project.embeddable === false ? (
+                <div className="flex h-full flex-col items-center justify-center gap-6 bg-background p-6 text-center">
+                  <img
+                    src={project.cover}
+                    alt={project.title}
+                    className="max-h-[60%] max-w-full rounded-2xl border border-foreground/10 object-contain"
+                  />
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-12 items-center gap-2 rounded-full bg-brand-navy px-6 text-white"
+                  >
+                    Visit the live site
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              ) : (
+                <>
+                  {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-background">
+                      <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+                    </div>
+                  )}
+                  <iframe
+                    key={project.slug}
+                    src={project.liveUrl}
+                    title={`${project.title} — live site`}
+                    onLoad={() => setLoading(false)}
+                    className="h-full w-full border-0"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

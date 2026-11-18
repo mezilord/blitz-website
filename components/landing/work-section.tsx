@@ -132,14 +132,9 @@ export function WorkSection() {
             <CardHeader serviceKey="brand" />
             <div className="relative mt-12 flex-1 min-h-[340px] sm:min-h-[420px] lg:min-h-[480px]">
               <img
-                src={serviceShowcase.brand.back}
-                alt=""
-                className="absolute left-0 bottom-0 h-[88%] w-[45%] object-cover"
-              />
-              <img
                 src={serviceShowcase.brand.front}
-                alt=""
-                className="absolute right-0 bottom-0 h-full w-[63%] object-cover shadow-[-24px_0_48px_rgba(0,0,0,0.12)]"
+                alt="Prime Phones logo"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           </article>

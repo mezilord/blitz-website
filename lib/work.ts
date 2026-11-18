@@ -184,7 +184,7 @@ export const projects: Project[] = [
 export const serviceShowcase: Record<ServiceKey, { back: string; front: string }> = {
   brand: {
     back: "/work/northerntech-solutions/logo-mark.jpg",
-    front: "/work/prime-phones/logo-portrait.jpg",
+    front: "/work/prime-phones/logo.jpg",
   },
   logo: {
     back: "/work/northerntech-solutions/logo-mark.jpg",

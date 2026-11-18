@@ -53,10 +53,10 @@ export function CtaSection() {
           />
 
           <div className="relative z-10 px-4 sm:px-8 lg:px-12 xl:px-16 py-12 lg:py-20">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+            <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-12 xl:gap-16">
               {/* Left content */}
-              <div className="flex-1">
-                <h2 className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-display tracking-tight mb-8 leading-[0.95]">
+              <div className="flex-1 min-w-0">
+                <h2 className="text-4xl lg:text-6xl xl:text-[clamp(3rem,4.1vw,4.5rem)] font-display tracking-tight mb-8 leading-[0.95]">
                   Ready to bring
                   <br />
                   your vision to life?
@@ -96,7 +96,7 @@ export function CtaSection() {
               {/* Booking calendar */}
               <div
                 id="book"
-                className="w-full lg:w-[560px] shrink-0 scroll-mt-28 border border-foreground/10 bg-background"
+                className="w-full xl:w-[560px] shrink-0 scroll-mt-28 border border-foreground/10 bg-background"
               >
                 <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-4 border-b border-foreground/10 whitespace-nowrap">
                   <span className="text-xs sm:text-sm font-mono text-muted-foreground">

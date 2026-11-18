@@ -11,6 +11,12 @@ import {
 } from "@/lib/work";
 import { LiveDemoButton } from "@/components/work/live-demo";
 
+const servicePage: Record<ServiceKey, string> = {
+  brand: "/services/brand-identity/",
+  logo: "/services/logo-design/",
+  web: "/services/web-mobile-development/",
+};
+
 const icons: Record<ServiceKey, LucideIcon> = {
   brand: PanelsTopLeft,
   logo: Crop,
@@ -53,9 +59,14 @@ function CardHeader({ serviceKey }: { serviceKey: ServiceKey }) {
   return (
     <div className="p-8 lg:p-12 pb-0 lg:pb-0">
       <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
-        <h3 className="flex items-center gap-4 text-2xl lg:text-3xl font-display tracking-tight">
-          <Icon className="h-7 w-7 shrink-0 stroke-[1.5]" />
-          {service.title}
+        <h3 className="text-2xl lg:text-3xl font-display tracking-tight">
+          <a
+            href={servicePage[serviceKey]}
+            className="flex items-center gap-4 hover:underline decoration-foreground/20 underline-offset-4"
+          >
+            <Icon className="h-7 w-7 shrink-0 stroke-[1.5]" />
+            {service.title}
+          </a>
         </h3>
         <span className="pt-2 text-xs lg:text-sm font-mono uppercase tracking-wider text-muted-foreground whitespace-nowrap">
           {service.delivery}

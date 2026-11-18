@@ -9,6 +9,7 @@ const features = [
     description:
       "Intelligent automation for your business. Customer support agents, chatbots, AI-powered workflows, and custom integrations that save time and boost efficiency.",
     visual: "ai",
+    href: "/services/ai-solutions/",
   },
   {
     number: "02",
@@ -16,6 +17,7 @@ const features = [
     description:
       "Custom websites, web applications, and native mobile apps for iOS and Android. From landing pages to complex platforms, we build fast, responsive, and scalable solutions.",
     visual: "deploy",
+    href: "/services/web-mobile-development/",
   },
   {
     number: "03",
@@ -23,6 +25,7 @@ const features = [
     description:
       "User-centered design that converts. From wireframes to polished interfaces, we create beautiful experiences backed by research and proven design principles.",
     visual: "collab",
+    href: "/services/ux-ui-design/",
   },
   {
     number: "04",
@@ -30,6 +33,7 @@ const features = [
     description:
       "Grow your brand online with social media management, SEO optimization, video editing, content creation, and Google Business Profile management.",
     visual: "marketing",
+    href: "/services/digital-marketing/",
   },
 ];
 
@@ -489,6 +493,12 @@ function FeatureCard({
             <p className="text-lg text-muted-foreground leading-relaxed">
               {feature.description}
             </p>
+            <a
+              href={feature.href}
+              className="mt-6 inline-flex items-center gap-2 text-foreground underline decoration-foreground/20 underline-offset-4 hover:decoration-brand-orange transition-colors"
+            >
+              Learn more about {feature.title}
+            </a>
           </div>
 
           {/* Visual */}

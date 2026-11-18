@@ -13,10 +13,11 @@ export const CAL_LINK = "blitz-creative/30min";
  * data-cal-namespace="30min" data-cal-link="blitz-creative/30min"
  * also opens the same popup.
  */
-export function CalFloatingButton() {
+export function CalFloatingButton({ floating = true }: { floating?: boolean }) {
   // Only show the floating button once the page's own
   // "Book Free Discovery Call" button has scrolled out of view.
   useEffect(() => {
+    if (!floating) return;
     const target = document.getElementById("discovery-cta");
     const body = document.body;
     if (!target) return;
@@ -29,7 +30,7 @@ export function CalFloatingButton() {
       observer.disconnect();
       body.classList.remove("cal-fab-hidden");
     };
-  }, []);
+  }, [floating]);
 
   useEffect(() => {
     const w = window as any;
@@ -74,7 +75,7 @@ export function CalFloatingButton() {
     Cal.config = Cal.config || {};
     Cal.config.forwardQueryParams = true;
 
-    Cal.ns[NAMESPACE]("floatingButton", {
+    if (floating) Cal.ns[NAMESPACE]("floatingButton", {
       calLink: CAL_LINK,
       config: {
         layout: "month_view",
@@ -91,7 +92,7 @@ export function CalFloatingButton() {
       layout: "month_view",
       cssVarsPerTheme: { light: { "cal-brand": "#062A3A" } },
     });
-  }, []);
+  }, [floating]);
 
   return null;
 }

@@ -88,7 +88,7 @@ export function HowItWorksSection() {
     <section
       id="process"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 bg-foreground text-background overflow-hidden"
+      className="relative py-24 lg:py-32 bg-brand-navy text-background overflow-hidden"
     >
       {/* Diagonal lines pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -110,7 +110,7 @@ export function HowItWorksSection() {
         {/* Header */}
         <div className="mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-background/50 mb-6">
-            <span className="w-8 h-px bg-background/30" />
+            <span className="w-8 h-px bg-brand-orange" />
             Our Workflow
           </span>
           <h2
@@ -142,7 +142,7 @@ export function HowItWorksSection() {
                 }`}
               >
                 <div className="flex items-start gap-6">
-                  <span className="font-display text-3xl text-background/30">
+                  <span className="font-display text-3xl text-brand-orange">
                     {step.number}
                   </span>
                   <div className="flex-1">
@@ -157,7 +157,7 @@ export function HowItWorksSection() {
                     {activeStep === index && (
                       <div className="mt-4 h-px bg-background/20 overflow-hidden">
                         <div
-                          className="h-full bg-background w-0"
+                          className="h-full bg-brand-orange w-0"
                           style={{
                             animation: "progress 5s linear forwards",
                           }}
@@ -221,7 +221,7 @@ export function HowItWorksSection() {
 
               {/* Status */}
               <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                 <span className="text-xs font-mono text-background/40">
                   Ready
                 </span>
@@ -232,7 +232,7 @@ export function HowItWorksSection() {
             <div>
               <a
                 href="#contact"
-                className="group relative inline-flex items-center justify-between w-full px-6 py-4 bg-background text-foreground font-mono text-sm uppercase tracking-wider font-semibold border border-background hover:bg-transparent hover:text-background transition-all duration-300"
+                className="group relative inline-flex items-center justify-between w-full px-6 py-4 bg-background text-brand-navy font-mono text-sm uppercase tracking-wider font-semibold border border-background hover:bg-transparent hover:text-background transition-all duration-300"
               >
                 <span>Get In Touch</span>
                 <svg

@@ -60,7 +60,7 @@ export function InfrastructureSection() {
             }`}
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-              <span className="w-8 h-px bg-foreground/30" />
+              <span className="w-8 h-px bg-brand-orange" />
               Why Choose Us
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
@@ -134,7 +134,7 @@ export function InfrastructureSection() {
                       <span
                         className={`w-2 h-2 rounded-full transition-colors duration-300 ${
                           activeLocation === index
-                            ? "bg-foreground"
+                            ? "bg-brand-orange"
                             : "bg-foreground/20"
                         }`}
                       />

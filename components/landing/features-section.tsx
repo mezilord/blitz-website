@@ -475,7 +475,7 @@ function FeatureCard({
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 lg:py-20 border-b border-foreground/10">
         {/* Number */}
         <div className="shrink-0">
-          <span className="font-mono text-sm text-muted-foreground">
+          <span className="font-mono text-sm text-brand-orange">
             {feature.number}
           </span>
         </div>
@@ -493,7 +493,7 @@ function FeatureCard({
 
           {/* Visual */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-48 h-40 text-foreground">
+            <div className="w-56 h-44 lg:w-64 lg:h-52 text-brand-navy">
               <AnimatedVisual type={feature.visual} />
             </div>
           </div>
@@ -525,7 +525,7 @@ export function FeaturesSection() {
         {/* Header */}
         <div className="mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-            <span className="w-8 h-px bg-foreground/30" />
+            <span className="w-8 h-px bg-brand-orange" />
             Services
           </span>
           <h2

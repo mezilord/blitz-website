@@ -55,7 +55,7 @@ export function HeroSection() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-16 lg:pt-40 lg:pb-20">
         {/* Eyebrow */}
         <div
           className={`mb-8 transition-all duration-700 ${
@@ -63,7 +63,7 @@ export function HeroSection() {
           }`}
         >
           <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
-            <span className="w-8 h-px bg-foreground/30" />
+            <span className="w-8 h-px bg-brand-orange" />
             Design + Development Studio
           </span>
         </div>
@@ -81,7 +81,7 @@ export function HeroSection() {
             <span className="block">
               {" "}
               <span className="relative inline-block">
-                <span key={wordIndex} className="inline-flex">
+                <span key={wordIndex} className="inline-flex text-brand-orange">
                   {words[wordIndex].split("").map((char, i) => (
                     <span
                       key={`${wordIndex}-${i}`}
@@ -94,7 +94,7 @@ export function HeroSection() {
                     </span>
                   ))}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
+                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-brand-navy" />
               </span>
             </span>
           </h1>
@@ -122,18 +122,22 @@ export function HeroSection() {
             }`}
           >
             <Button
+              asChild
               size="lg"
-              className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
+              className="bg-brand-navy hover:bg-brand-navy/90 text-white px-8 h-14 text-base rounded-full group"
             >
-              Start Your Project
-              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              <a href="#contact">
+                Start Your Project
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
             >
-              View Our Work
+              <a href="#work">View Our Work</a>
             </Button>
           </div>
         </div>
@@ -141,7 +145,7 @@ export function HeroSection() {
 
       {/* Stats marquee - full width outside container */}
       <div
-        className={`absolute bottom-24 left-0 right-0 transition-all duration-700 delay-500 ${
+        className={`relative z-10 border-y border-foreground/10 bg-background/85 backdrop-blur-sm py-6 lg:py-8 transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >

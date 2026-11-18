@@ -54,25 +54,13 @@ export function FooterSection() {
                 href="#"
                 className="inline-flex items-center justify-start gap-2 mb-6 text-left"
               >
-                <div className="relative transition-all duration-500 w-35 h-35">
-                  <img
-                    alt="Blitz Creative Logo"
-                    decoding="async"
-                    data-nimg="fill"
-                    className="object-contain dark:invert"
-                    style={{
-                      position: "absolute",
-                      height: "100%",
-                      width: "100%",
-                      left: "-24px",
-                      top: 0,
-                      right: "auto",
-                      bottom: "auto",
-                      color: "transparent",
-                    }}
-                    src="/logo-black.svg"
-                  />
-                </div>
+                <img
+                  alt="Blitz Creative Logo"
+                  src="/logo.svg"
+                  width={150}
+                  height={101}
+                  className="h-auto w-[150px]"
+                />
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">

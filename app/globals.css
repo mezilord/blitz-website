@@ -40,6 +40,8 @@
 }
 
 @theme inline {
+  --color-brand-navy: #062a3a;
+  --color-brand-orange: #f26322;
   --font-sans: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), "JetBrains Mono", monospace;
   --font-display:

@@ -29,7 +29,14 @@ export const metadata: Metadata = {
   title: "Blitz Creative - Design + Development Studio",
   description:
     "Full-service design and development studio. Website development, AI solutions, mobile apps, UX/UI design, and digital marketing.",
-  generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

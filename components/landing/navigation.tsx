@@ -55,14 +55,14 @@ export function Navigation() {
           <a href="#" className="flex items-center gap-2 group">
             <div
               className={`relative transition-all duration-500 ${
-                isScrolled ? "w-15 h-15" : "w-25 h-25"
+                isScrolled ? "w-[72px] h-12" : "w-[104px] h-[70px]"
               }`}
             >
               <Image
-                src="/logo-black.svg"
+                src="/logo.svg"
                 alt="Blitz Creative Logo"
                 fill
-                className="object-contain dark:invert"
+                className="object-contain"
                 priority
               />
             </div>
@@ -94,7 +94,7 @@ export function Navigation() {
             <Button
               size="sm"
               onClick={handleGetQuote}
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${
+              className={`bg-brand-navy hover:bg-brand-navy/90 text-white rounded-full transition-all duration-500 ${
                 isScrolled ? "px-4 h-8 text-xs" : "px-6"
               }`}
             >
@@ -158,7 +158,7 @@ export function Navigation() {
             style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
             <Button
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
+              className="flex-1 bg-brand-navy text-white rounded-full h-14 text-base"
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 handleGetQuote();

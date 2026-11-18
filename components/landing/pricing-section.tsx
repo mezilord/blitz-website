@@ -70,7 +70,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative py-32 lg:py-40 border-t border-foreground/10"
+      className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 border-t border-foreground/10"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -96,12 +96,12 @@ export function PricingSection() {
               key={pkg.name}
               className={`relative p-8 lg:p-12 bg-background ${
                 pkg.popular
-                  ? "md:-my-4 md:py-12 lg:py-16 border-2 border-foreground"
+                  ? "md:-my-4 md:py-12 lg:py-16 border-2 border-brand-navy"
                   : ""
               }`}
             >
               {pkg.popular && (
-                <span className="absolute -top-3 left-8 px-3 py-1 bg-foreground text-primary-foreground text-xs font-mono uppercase tracking-widest">
+                <span className="absolute -top-3 left-8 px-3 py-1 bg-brand-orange text-white text-xs font-mono uppercase tracking-widest">
                   Most Popular
                 </span>
               )}
@@ -157,7 +157,7 @@ export function PricingSection() {
                 href="#contact"
                 className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
                   pkg.popular
-                    ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
+                    ? "bg-brand-navy text-white hover:bg-brand-navy/90"
                     : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
                 }`}
               >

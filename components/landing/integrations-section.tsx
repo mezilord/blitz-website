@@ -30,7 +30,7 @@ export function IntegrationsSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -38,7 +38,11 @@ export function IntegrationsSection() {
   }, []);
 
   return (
-    <section id="integrations" ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
+    <section
+      id="integrations"
+      ref={sectionRef}
+      className="relative py-24 lg:py-32 overflow-hidden"
+    >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div
@@ -57,12 +61,12 @@ export function IntegrationsSection() {
             all your favorite tools.
           </h2>
           <p className="text-xl text-muted-foreground">
-            Our team is skilled in the latest technologies. Whatever stack you need, we've got you covered.
+            Our team is skilled in the latest technologies. Whatever stack you
+            need, we've got you covered.
           </p>
         </div>
-
       </div>
-      
+
       {/* Full-width marquees outside container */}
       <div className="w-full mb-6">
         <div className="flex gap-6 marquee">
@@ -76,14 +80,16 @@ export function IntegrationsSection() {
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform">
                     {integration.name}
                   </div>
-                  <div className="text-sm text-muted-foreground">{integration.category}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {integration.category}
+                  </div>
                 </div>
               ))}
             </div>
           ))}
         </div>
       </div>
-      
+
       {/* Reverse marquee */}
       <div className="w-full">
         <div className="flex gap-6 marquee-reverse">
@@ -97,7 +103,9 @@ export function IntegrationsSection() {
                   <div className="text-lg font-medium group-hover:translate-x-1 transition-transform">
                     {integration.name}
                   </div>
-                  <div className="text-sm text-muted-foreground">{integration.category}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {integration.category}
+                  </div>
                 </div>
               ))}
             </div>

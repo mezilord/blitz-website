@@ -68,7 +68,10 @@ const addOns = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="relative py-32 lg:py-40 border-t border-foreground/10">
+    <section
+      id="pricing"
+      className="relative py-32 lg:py-40 border-t border-foreground/10"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-20">
@@ -81,8 +84,8 @@ export function PricingSection() {
             <span className="text-stroke">for every need</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Transparent pricing with no hidden fees. Every project is unique, 
-            so we&apos;ll provide a custom quote after understanding your needs.
+            Transparent pricing with no hidden fees. Every project is unique, so
+            we&apos;ll provide a custom quote after understanding your needs.
           </p>
         </div>
 
@@ -92,7 +95,9 @@ export function PricingSection() {
             <div
               key={pkg.name}
               className={`relative p-8 lg:p-12 bg-background ${
-                pkg.popular ? "md:-my-4 md:py-12 lg:py-16 border-2 border-foreground" : ""
+                pkg.popular
+                  ? "md:-my-4 md:py-12 lg:py-16 border-2 border-foreground"
+                  : ""
               }`}
             >
               {pkg.popular && (
@@ -106,21 +111,29 @@ export function PricingSection() {
                 <span className="font-mono text-xs text-muted-foreground">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-3xl text-foreground mt-2">{pkg.name}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{pkg.description}</p>
+                <h3 className="font-display text-3xl text-foreground mt-2">
+                  {pkg.name}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {pkg.description}
+                </p>
               </div>
 
               {/* Price */}
               <div className="mb-8 pb-8 border-b border-foreground/10">
                 {pkg.startingAt !== null ? (
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm text-muted-foreground">Starting at</span>
+                    <span className="text-sm text-muted-foreground">
+                      Starting at
+                    </span>
                     <span className="font-display text-5xl lg:text-6xl text-foreground">
                       ${pkg.startingAt}
                     </span>
                   </div>
                 ) : (
-                  <span className="font-display text-4xl text-foreground">Custom Quote</span>
+                  <span className="font-display text-4xl text-foreground">
+                    Custom Quote
+                  </span>
                 )}
                 <p className="text-xs text-muted-foreground mt-2 font-mono">
                   {pkg.examples}
@@ -132,7 +145,9 @@ export function PricingSection() {
                 {pkg.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <Check className="w-4 h-4 text-foreground mt-0.5 shrink-0" />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -157,26 +172,32 @@ export function PricingSection() {
         <div className="border border-foreground/10 p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-8">
             <div>
-              <h3 className="font-display text-2xl text-foreground mb-2">Add-on Services</h3>
-              <p className="text-muted-foreground">Enhance your project with these extras</p>
+              <h3 className="font-display text-2xl text-foreground mb-2">
+                Add-on Services
+              </h3>
+              <p className="text-muted-foreground">
+                Enhance your project with these extras
+              </p>
             </div>
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="text-sm text-foreground hover:underline underline-offset-4 flex items-center gap-2 group"
             >
               Request custom quote
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {addOns.map((addon) => (
-              <div 
+              <div
                 key={addon.name}
                 className="flex items-center justify-between p-4 border border-foreground/10 hover:border-foreground/20 transition-colors"
               >
                 <span className="text-sm text-foreground">{addon.name}</span>
-                <span className="text-sm font-mono text-muted-foreground">{addon.price}</span>
+                <span className="text-sm font-mono text-muted-foreground">
+                  {addon.price}
+                </span>
               </div>
             ))}
           </div>
@@ -185,7 +206,10 @@ export function PricingSection() {
         {/* Bottom Note */}
         <p className="mt-12 text-center text-sm text-muted-foreground">
           All projects include free consultation and detailed proposal.{" "}
-          <a href="#contact" className="underline underline-offset-4 hover:text-foreground transition-colors">
+          <a
+            href="#contact"
+            className="underline underline-offset-4 hover:text-foreground transition-colors"
+          >
             Get in touch to discuss your project
           </a>
         </p>

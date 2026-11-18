@@ -29,16 +29,20 @@ export function AnimatedTetrahedron() {
 
     // Tetrahedron vertices
     const vertices = [
-      { x: 0, y: 1, z: 0 },           // Top
+      { x: 0, y: 1, z: 0 }, // Top
       { x: -0.943, y: -0.333, z: -0.5 }, // Bottom left back
-      { x: 0.943, y: -0.333, z: -0.5 },  // Bottom right back
-      { x: 0, y: -0.333, z: 1 },         // Bottom front
+      { x: 0.943, y: -0.333, z: -0.5 }, // Bottom right back
+      { x: 0, y: -0.333, z: 1 }, // Bottom front
     ];
 
     // Edges connecting vertices
     const edges = [
-      [0, 1], [0, 2], [0, 3], // Top to bottom vertices
-      [1, 2], [2, 3], [3, 1], // Bottom triangle
+      [0, 1],
+      [0, 2],
+      [0, 3], // Top to bottom vertices
+      [1, 2],
+      [2, 3],
+      [3, 1], // Bottom triangle
     ];
 
     // Faces for filling with points
@@ -49,19 +53,28 @@ export function AnimatedTetrahedron() {
       [1, 3, 2], // Bottom face
     ];
 
-    const rotateY = (point: { x: number; y: number; z: number }, angle: number) => ({
+    const rotateY = (
+      point: { x: number; y: number; z: number },
+      angle: number,
+    ) => ({
       x: point.x * Math.cos(angle) - point.z * Math.sin(angle),
       y: point.y,
       z: point.x * Math.sin(angle) + point.z * Math.cos(angle),
     });
 
-    const rotateX = (point: { x: number; y: number; z: number }, angle: number) => ({
+    const rotateX = (
+      point: { x: number; y: number; z: number },
+      angle: number,
+    ) => ({
       x: point.x,
       y: point.y * Math.cos(angle) - point.z * Math.sin(angle),
       z: point.y * Math.sin(angle) + point.z * Math.cos(angle),
     });
 
-    const rotateZ = (point: { x: number; y: number; z: number }, angle: number) => ({
+    const rotateZ = (
+      point: { x: number; y: number; z: number },
+      angle: number,
+    ) => ({
       x: point.x * Math.cos(angle) - point.y * Math.sin(angle),
       y: point.x * Math.sin(angle) + point.y * Math.cos(angle),
       z: point.z,
